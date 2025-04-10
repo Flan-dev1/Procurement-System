@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7062685B-BBD8-45CA-9DEA-F77D85E80052}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Procurement_System</RootNamespace>
+    <AssemblyName>Procurement System</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="MarkdownSharp, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MarkdownSharp.2.0.5\lib\net40\MarkdownSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Forms\Reports\NetDiscounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Reports\NetDiscounts.Designer.cs">
+      <DependentUpon>NetDiscounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Reports\Overview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Reports\Overview.Designer.cs">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\PurchaseOrders\AccountsPayable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\PurchaseOrders\AccountsPayable.Designer.cs">
+      <DependentUpon>AccountsPayable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\AddItemPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\AddItemPO.Designer.cs">
+      <DependentUpon>AddItemPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\AdminMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\AdminMode.Designer.cs">
+      <DependentUpon>AdminMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\CreateItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\CreateItem.Designer.cs">
+      <DependentUpon>CreateItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\CreateNewWallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\CreateNewWallet.Designer.cs">
+      <DependentUpon>CreateNewWallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\CreatePaymentTerms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\CreatePaymentTerms.Designer.cs">
+      <DependentUpon>CreatePaymentTerms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\CreateSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\CreateSupplier.Designer.cs">
+      <DependentUpon>CreateSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\DirectPOList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\DirectPOList.Designer.cs">
+      <DependentUpon>DirectPOList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\EditItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\EditItem.Designer.cs">
+      <DependentUpon>EditItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\GoodsReceiptList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\GoodsReceiptList.Designer.cs">
+      <DependentUpon>GoodsReceiptList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\GRPOItemList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\GRPOItemList.Designer.cs">
+      <DependentUpon>GRPOItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\ItemList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\ItemList.Designer.cs">
+      <DependentUpon>ItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\PendingAPList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\PendingAPList.Designer.cs">
+      <DependentUpon>PendingAPList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\POItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\POItems.Designer.cs">
+      <DependentUpon>POItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\QuotationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\QuotationList.Designer.cs">
+      <DependentUpon>QuotationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\ReleaseItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\ReleaseItem.Designer.cs">
+      <DependentUpon>ReleaseItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\SupplierItemList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\SupplierItemList.Designer.cs">
+      <DependentUpon>SupplierItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\UpdateGenericItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\UpdateGenericItem.Designer.cs">
+      <DependentUpon>UpdateGenericItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\UpdateItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\UpdateItem.Designer.cs">
+      <DependentUpon>UpdateItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\ViewDPOItemList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\ViewDPOItemList.Designer.cs">
+      <DependentUpon>ViewDPOItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\WalletList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\WalletList.Designer.cs">
+      <DependentUpon>WalletList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdateEmployee.Designer.cs">
+      <DependentUpon>UpdateEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdateCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdateCategory.Designer.cs">
+      <DependentUpon>UpdateCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdatePaymentTerms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdatePaymentTerms.Designer.cs">
+      <DependentUpon>UpdatePaymentTerms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdateItemData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdateItemData.Designer.cs">
+      <DependentUpon>UpdateItemData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Quotations\CompareQuotation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Quotations\CompareQuotation.Designer.cs">
+      <DependentUpon>CompareQuotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\PurchaseOrders\ViewPOList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\PurchaseOrders\ViewPOList.Designer.cs">
+      <DependentUpon>ViewPOList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdateSupplierData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdateSupplierData.Designer.cs">
+      <DependentUpon>UpdateSupplierData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Quotations\ViewQuotation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Quotations\ViewQuotation.Designer.cs">
+      <DependentUpon>ViewQuotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Quotations\UpdateQuotation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Quotations\UpdateQuotation.Designer.cs">
+      <DependentUpon>UpdateQuotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Quotations\CreateQuotation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Quotations\CreateQuotation.Designer.cs">
+      <DependentUpon>CreateQuotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\PurchaseOrders\CreatePO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\PurchaseOrders\CreatePO.Designer.cs">
+      <DependentUpon>CreatePO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\SupplierList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Unsure\Quotation-PopUps\SupplierList.Designer.cs">
+      <DependentUpon>SupplierList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\PurchaseOrders\CreateGRPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\PurchaseOrders\CreateGRPO.Designer.cs">
+      <DependentUpon>CreateGRPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\ParentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\ParentForm.designer.cs">
+      <DependentUpon>ParentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ICreateSession.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdateWalletBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\UpdateMasterData\UpdateWalletBalance.Designer.cs">
+      <DependentUpon>UpdateWalletBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProcurementDocuments\AccountPayable.cs" />
+    <Compile Include="Models\ProcurementDocuments\BusinessWallet.cs" />
+    <Compile Include="Models\ProcurementDocuments\DGoodsReceipt.cs" />
+    <Compile Include="Models\ProcurementDocuments\DirectPurchaseOrder.cs" />
+    <Compile Include="Models\ProcurementDocuments\GoodsReceiptPO.cs" />
+    <Compile Include="Models\ProcurementDocuments\JournalEntry.cs" />
+    <Compile Include="Models\ProcurementDocuments\Quotation.cs" />
+    <Compile Include="Models\ProcurementDocuments\QuotationItem.cs" />
+    <Compile Include="Models\ProcurementDocuments\QuotationPurchaseOrder.cs" />
+    <Compile Include="Models\EmployeeAccount.cs" />
+    <Compile Include="Models\EmployeeType.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\ItemCategory.cs" />
+    <Compile Include="Models\ItemType.cs" />
+    <Compile Include="Models\PaymentTerms.cs" />
+    <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="Models\ProcurementDocuments\SelectedQuotation.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\SupplierModel.cs" />
+    <Compile Include="Models\SystemActions\IAdminManagerAction.cs" />
+    <Compile Include="Models\SystemActions\IDGoodsReceiptAction.cs" />
+    <Compile Include="Models\SystemActions\IDirectPOAction.cs" />
+    <Compile Include="Models\SystemActions\IGoodsReceiptAction.cs" />
+    <Compile Include="Models\SystemActions\IPayInvoice.cs" />
+    <Compile Include="Models\SystemActions\IPurchaseOrderAction.cs" />
+    <Compile Include="Models\SystemActions\IQuotationAction.cs" />
+    <Compile Include="Models\SystemActions\IUpdateEmployee.cs" />
+    <Compile Include="Models\SystemActions\IUpdateProduct.cs" />
+    <Compile Include="Models\SystemActions\IUpdateSupplier.cs" />
+    <Compile Include="Models\SystemActions\CategoryUpdater.cs" />
+    <Compile Include="Models\Users\AdminManager.cs" />
+    <Compile Include="Models\Users\BookKeeper.cs" />
+    <Compile Include="Models\Users\SalesStaff.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Authentication\AdminAccess.cs" />
+    <Compile Include="Services\Authentication\EmployeeFactory.cs" />
+    <Compile Include="Services\CurrencyFormat.cs" />
+    <Compile Include="Services\DataUpdater.cs" />
+    <Compile Include="Services\DocumentGenerator\DGoodsReceiptGenerator.cs" />
+    <Compile Include="Services\DocumentGenerator\DirectPurchaseOrderGenerator.cs" />
+    <Compile Include="Services\DocumentGenerator\DirectGoodsReceiptTemplate.cs">
+      <DependentUpon>DirectGoodsReceiptTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\DocumentGenerator\GoodsReceiptTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoodsReceiptTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\DocumentGenerator\QuotationTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuotationTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Authentication\AuthenticateUser.cs" />
+    <Compile Include="Services\Authentication\Login.cs" />
+    <Compile Include="Services\DocumentGenerator\GoodsReceiptGenerator.cs" />
+    <Compile Include="Services\DocumentGenerator\PurchaseOrderGenerator.cs" />
+    <Compile Include="Services\DocumentGenerator\QuotationGenerator.cs" />
+    <Compile Include="Services\DocumentGenerator\DirectPurchaseOrder.cs">
+      <DependentUpon>DirectPurchaseOrder.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\DocumentGenerator\RFQPurchaseOrderTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RFQPurchaseOrderTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Helper.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewDGRPO.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewDirectPO.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewEmployeeTypes.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewPaymentTerms.cs" />
+    <Compile Include="Services\Report\IReporter.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\GRPOItem.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewAP.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewCategories.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewData.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewEmployeesInfo.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewGoodsReceipt.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewGRPO.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewItemProducts.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewItemType.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewPO.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewQuotations.cs" />
+    <Compile Include="Services\ItemAssets\ViewData\ViewSupplierInfo.cs" />
+    <Compile Include="Services\Report\NetDiscounts.cs" />
+    <Compile Include="Services\Report\PendingQuotationReport.cs" />
+    <Compile Include="Services\Report\QuotationSupplierReport.cs" />
+    <Compile Include="Services\Report\ReleaseItemsReport.cs" />
+    <Compile Include="Services\Report\ReportAP.cs" />
+    <Compile Include="Services\Report\ReportItems.cs" />
+    <Compile Include="Services\Report\ReportQPO.cs" />
+    <Compile Include="Services\Report\ReportSupplier.cs" />
+    <Compile Include="Services\Report\SupplierDiscountsReport.cs" />
+    <EmbeddedResource Include="Models\Forms\Reports\NetDiscounts.resx">
+      <DependentUpon>NetDiscounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Reports\Overview.resx">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\PurchaseOrders\AccountsPayable.resx">
+      <DependentUpon>AccountsPayable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\AddItemPO.resx">
+      <DependentUpon>AddItemPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\AdminMode.resx">
+      <DependentUpon>AdminMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\CreateItem.resx">
+      <DependentUpon>CreateItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\CreateNewWallet.resx">
+      <DependentUpon>CreateNewWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\CreatePaymentTerms.resx">
+      <DependentUpon>CreatePaymentTerms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\CreateSupplier.resx">
+      <DependentUpon>CreateSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\DirectPOList.resx">
+      <DependentUpon>DirectPOList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\EditItem.resx">
+      <DependentUpon>EditItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\GoodsReceiptList.resx">
+      <DependentUpon>GoodsReceiptList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\GRPOItemList.resx">
+      <DependentUpon>GRPOItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\ItemList.resx">
+      <DependentUpon>ItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\PendingAPList.resx">
+      <DependentUpon>PendingAPList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\POItems.resx">
+      <DependentUpon>POItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\QuotationList.resx">
+      <DependentUpon>QuotationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\ReleaseItem.resx">
+      <DependentUpon>ReleaseItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\SupplierItemList.resx">
+      <DependentUpon>SupplierItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\UpdateGenericItem.resx">
+      <DependentUpon>UpdateGenericItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\UpdateItem.resx">
+      <DependentUpon>UpdateItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\ViewDPOItemList.resx">
+      <DependentUpon>ViewDPOItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\WalletList.resx">
+      <DependentUpon>WalletList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\UpdateMasterData\UpdateCategory.resx">
+      <DependentUpon>UpdateCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\UpdateMasterData\UpdateEmployee.resx">
+      <DependentUpon>UpdateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\UpdateMasterData\UpdatePaymentTerms.resx">
+      <DependentUpon>UpdatePaymentTerms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\UpdateMasterData\UpdateItemData.resx">
+      <DependentUpon>UpdateItemData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Quotations\CompareQuotation.resx">
+      <DependentUpon>CompareQuotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\PurchaseOrders\ViewPOList.resx">
+      <DependentUpon>ViewPOList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\UpdateMasterData\UpdateSupplierData.resx">
+      <DependentUpon>UpdateSupplierData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Quotations\ViewQuotation.resx">
+      <DependentUpon>ViewQuotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Quotations\UpdateQuotation.resx">
+      <DependentUpon>UpdateQuotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Quotations\CreateQuotation.resx">
+      <DependentUpon>CreateQuotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\PurchaseOrders\CreatePO.resx">
+      <DependentUpon>CreatePO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Unsure\Quotation-PopUps\SupplierList.resx">
+      <DependentUpon>SupplierList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\PurchaseOrders\CreateGRPO.resx">
+      <DependentUpon>CreateGRPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\ParentForm.resx">
+      <DependentUpon>ParentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\UpdateMasterData\UpdateWalletBalance.resx">
+      <DependentUpon>UpdateWalletBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Services\DocumentGenerator\DirectGoodsReceiptTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DirectGoodsReceiptTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\DocumentGenerator\GoodsReceiptTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GoodsReceiptTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\DocumentGenerator\QuotationTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>QuotationTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\DocumentGenerator\DirectPurchaseOrder.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DirectPurchaseOrder.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\DocumentGenerator\RFQPurchaseOrderTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RFQPurchaseOrderTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseConnection\DatabaseConnection.csproj">
+      <Project>{13EC982B-4596-454C-8FEF-9C653F3450C1}</Project>
+      <Name>DatabaseConnection</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginLogo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purchaseorder1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quotation1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receipt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Forms\DocumentWindows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
