@@ -1,9 +1,9 @@
 ﻿# Procurement System Project
 
 ### Introduction
-Procurement System is a type of A procurement system or purchasing system allows organizations to automate the process of purchasing goods/services and maintaining inventory. - [Kissflow](https://kissflow.com)
+Procurement systems or purchasing systems allow organizations to automate the process of purchasing goods/services and maintaining inventory. - [Kissflow](https://kissflow.com)
 
-This system is course project of subject Application Development/Event-Driven/Advance Database on STI College Malolos. This project aims to solve problems of procurement process of Prudo School Supplies.
+This system is a course project for our Application Development/Event-Driven/Advance Database subjects on STI College Malolos. This project aims to solve problems of procurement process of Prudo School Supplies.
 
 **Key Features**
 - [x] Able to create multiple quotations on different suppliers on single click.
